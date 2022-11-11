@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MultiShop - Online Shop Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <%- include('../partial/style') %>
+</head>
+
+<body>
+<!-- Topbar Start -->
+<div class="container-fluid">
+    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+        <div class="col-lg-12">
+            <a href="/" class="text-decoration-none">
+                <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
+                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Topbar End -->
+
+<!--login start-->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-lg-5">
+            </h5>
+            <div class="bg-light p-30 mb-5">
+
+            </div>
+        </div>
+        <div class="col-lg-7 table-responsive mb-5">
+
+            <form method="post">
+                <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: red;"></i>
+                    <span class="h1 fw-bold mb-0">LOGIN</span>
+                </div>
+                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your
+                    account</h5>
+                <div class="form-outline mb-4">
+                    <input type="text" id="form2Example17" class="form-control form-control-lg"
+                           name="username" required/>
+                    <label class="form-label" for="form2Example17">Name Account</label>
+                </div>
+                <div class="form-outline mb-4">
+                    <input type="password" id="form2Example27" class="form-control form-control-lg"
+                           name="password" required/>
+                    <label class="form-label" for="form2Example27">Password</label>
+                </div>
+                <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                </div>
+                <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
+                            href="/register"
+                            style="color: #393f81;">Register here</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+<!--login end-->
+
+<!-- Footer Start -->
+<%- include('../partial/footer') %>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<%- include('../partial/script') %>
+</body>
+
+</html>
