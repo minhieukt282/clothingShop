@@ -39,7 +39,7 @@ class ProductController {
                 });
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.listProduct = async (req, res) => {
@@ -53,7 +53,7 @@ class ProductController {
                 });
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.details = async (req, res) => {
@@ -69,17 +69,17 @@ class ProductController {
                 });
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.addToCart = async (req, res) => {
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
             if (isStatus) {
                 await this.productService.saveProductToCart(+req.cookies.account_id, +req.params.productId, +req.body.quantity);
-                res.redirect('/products');
+                res.redirect('/users/products');
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.category = async (req, res) => {
@@ -94,11 +94,11 @@ class ProductController {
                 });
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.genderCategory = async (req, res) => {
-            res.redirect('/mycart');
+            res.redirect('/users/mycart');
         };
         this.myCart = async (req, res) => {
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
@@ -119,17 +119,17 @@ class ProductController {
                 });
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.payment = async (req, res) => {
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
             if (isStatus) {
                 await this.productService.paymentDone(+req.cookies.account_id);
-                res.redirect('/home');
+                res.redirect('/users/home');
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.productService = new product_service_1.ProductService();

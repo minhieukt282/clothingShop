@@ -15,29 +15,29 @@ class LoginController {
             if (status) {
                 let accountId = await this.loginService.findAccountId(req.body.username);
                 res.cookie('account_id', accountId[0].account_id, { maxAge: 86400, httpOnly: true });
-                res.redirect('/home');
+                res.redirect('/users/home');
             }
             else
-                res.redirect('/login');
+                res.redirect('/users/login');
         };
         this.register = async (req, res) => {
             let isStatus = await this.loginService.checkUsername(req.body.username);
             if (isStatus) {
-                res.redirect('/register');
+                res.redirect('/users/register');
             }
             else {
                 if (req.body.password === req.body.confirmPassword) {
                     await this.loginService.createAccount(req.body.username, req.body.password);
-                    res.redirect('/login');
+                    res.redirect('/users/login');
                 }
                 else {
-                    res.redirect('/register');
+                    res.redirect('/users/register');
                 }
             }
         };
         this.logout = async (req, res) => {
             res.clearCookie("account_id");
-            res.redirect('/login');
+            res.redirect('/users/login');
         };
         this.loginService = new login_service_1.LoginService();
     }

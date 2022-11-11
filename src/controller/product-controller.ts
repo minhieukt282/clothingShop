@@ -47,7 +47,7 @@ export class ProductController {
                 gender: allItem.gender
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
@@ -61,7 +61,7 @@ export class ProductController {
                 gender: allItem.gender
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
@@ -77,7 +77,7 @@ export class ProductController {
                 gender: navItem.gender
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
 
     }
@@ -86,9 +86,9 @@ export class ProductController {
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
             await this.productService.saveProductToCart(+req.cookies.account_id, +req.params.productId, +req.body.quantity)
-            res.redirect('/products')
+            res.redirect('/users/products')
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
@@ -103,7 +103,7 @@ export class ProductController {
                 gender: navItem.gender
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
@@ -115,7 +115,7 @@ export class ProductController {
         //     products = await this.productService.findByGenderCategory(req.params.genderName, req.params.categoryName)
         // }
         // console.log('products',products)
-        res.redirect('/mycart')
+        res.redirect('/users/mycart')
     }
 
     myCart = async (req: Request, res: Response) => {
@@ -136,7 +136,7 @@ export class ProductController {
                 total: total
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
@@ -144,9 +144,9 @@ export class ProductController {
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
             await this.productService.paymentDone(+req.cookies.account_id)
-            res.redirect('/home')
+            res.redirect('/users/home')
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 }

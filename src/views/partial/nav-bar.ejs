@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4">
-            <a href="/home" class="text-decoration-none">
+            <a href="/users/home" class="text-decoration-none">
                 <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
                 <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
             </a>
@@ -24,7 +24,7 @@
                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Account
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button" onclick="location.href='/logout'">Logout</button>
+                        <button class="dropdown-item" type="button" onclick="location.href='/users/logout'">Logout</button>
                     </div>
                 </div>
             </div>
@@ -48,9 +48,9 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Wedding clothes <i
                                     class="fa fa-angle-right float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                            <a href="/<%= gender[1].gender_name %>/<%= category[0].category_name %>"
+                            <a href="/shops/<%= gender[1].gender_name %>/<%= category[0].category_name %>"
                                class="dropdown-item">Wedding Dresses</a>
-                            <a href="/<%= gender[0].gender_name %>/<%= category[4].category_name %>"
+                            <a href="/shops/<%= gender[0].gender_name %>/<%= category[4].category_name %>"
                                class="dropdown-item">Man Complete Suit</a>
                         </div>
                     </div>
@@ -58,9 +58,9 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Shirts <i
                                     class="fa fa-angle-right float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                            <a href="/<%= gender[1].gender_name %>/<%= category[1].category_name %>"
+                            <a href="/shops/<%= gender[1].gender_name %>/<%= category[1].category_name %>"
                                class="dropdown-item">Woman shirt</a>
-                            <a href="/<%= gender[0].gender_name %>/<%= category[1].category_name %>"
+                            <a href="/shops/<%= gender[0].gender_name %>/<%= category[1].category_name %>"
                                class="dropdown-item">Man shirt</a>
                         </div>
                     </div>
@@ -68,9 +68,9 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jeans <i
                                     class="fa fa-angle-right float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                            <a href="/<%= gender[1].gender_name %>/<%= category[2].category_name %>"
+                            <a href="/shops/<%= gender[1].gender_name %>/<%= category[2].category_name %>"
                                class="dropdown-item">Woman jean</a>
-                            <a href="/<%= gender[0].gender_name %>/<%= category[2].category_name %>"
+                            <a href="/shops/<%= gender[0].gender_name %>/<%= category[2].category_name %>"
                                class="dropdown-item">Man jean</a>
                         </div>
                     </div>
@@ -78,9 +78,9 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Shoes <i
                                     class="fa fa-angle-right float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                            <a href="/<%= gender[1].gender_name %>/<%= category[3].category_name %>"
+                            <a href="/shops/<%= gender[1].gender_name %>/<%= category[3].category_name %>"
                                class="dropdown-item">Woman Shoes</a>
-                            <a href="/<%= gender[0].gender_name %>/<%= category[3].category_name %>"
+                            <a href="/shops/<%= gender[0].gender_name %>/<%= category[3].category_name %>"
                                class="dropdown-item">Men Shoes</a>
                         </div>
                     </div>
@@ -94,13 +94,13 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="/home" class="nav-item nav-link active">Home</a>
-                        <a href="/products" class="nav-item nav-link">Product</a>
+                        <a href="/users/home" class="nav-item nav-link active">Home</a>
+                        <a href="/users/products" class="nav-item nav-link">Product</a>
                         <div class="nav-item dropdown">
                             <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Checkout <i
                                         class="fa fa-angle-down mt-1"></i></a>
                             <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                <a href="/mycart" class="dropdown-item">My Cart</a>
+                                <a href="/users/mycart" class="dropdown-item">My Cart</a>
                                 <a href="checkout.html" class="dropdown-item">Checkout</a>
                             </div>
                         </div>
