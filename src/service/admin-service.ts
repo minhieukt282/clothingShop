@@ -1,19 +1,52 @@
 import {AppDataSource} from "../data-source";
 import {Product} from "../model/product";
+import {Bill} from "../model/bill";
+import {Details} from "../model/details";
+import {Between} from "typeorm";
 
 export class AdminService {
     private productRepository: any
+    private billRepository: any
+    private detailsRepository: any
 
     constructor() {
         AppDataSource.initialize().then(connection => {
             console.log("Admin service connect success")
             this.productRepository = connection.getRepository(Product)
+            this.billRepository = connection.getRepository(Bill)
+            this.detailsRepository = connection.getRepository(Details)
         })
     }
 
     createProduct = async (newProduct: any) => {
         await this.productRepository.save(newProduct)
     }
+
+    showBill = async (time1: string, time2: string) => {
+        let bills = await this.billRepository.query(`select time, count (price) as quantity, sum (price) as total
+                                                     from (select b.time, sum (p.price * d.quantity) as price
+                                                         from bill as b
+                                                         join details d on b.bill_id = d.bill_id
+                                                         join products p on d.product_id = p.product_id
+                                                         where b.time between '${time1}' and '${time2}'
+                                                         group by b.bill_id) as temptable
+                                                     group by time`)
+        return bills
+    }
+
+    showProduct = async (productId: number) => {
+        let product = await this.productRepository.find({
+            where: {
+                product_id: productId
+            }
+        })
+        return product
+    }
+
+    delProduct = async (productId: number)=>{
+        await this.productRepository.delete(productId)
+    }
+
 }
 
 export default new AdminService()

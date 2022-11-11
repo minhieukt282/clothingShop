@@ -5,27 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3357390-016f-4eeb-9cd2-a43bec7cde74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/admin-controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/router-admin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/admin-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/admin/adminHome.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/admin/create.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/admin/nav-bar.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/admin/product.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/56176cdf-1cb0-4d36-a0e4-d9141e11caf3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56176cdf-1cb0-4d36-a0e4-d9141e11caf3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/admin/update.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/controller/admin-controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/admin-controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/controller/admin-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/admin-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/controller/admin-controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/admin-controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/router/router-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router-admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/router/router-admin.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router-admin.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/router/router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/login-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/login-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/login-service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/login-service.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/service/admin-service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/admin-service.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/service/admin-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/admin-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/service/admin-service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/admin-service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/admin-controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/admin-controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/router-admin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router-admin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/router-login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router-login.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/login-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/login-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/admin-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/admin-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/adminHome.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/adminHome.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/create.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/create.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/nav-bar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/nav-bar.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/admin/product.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/product.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/partial/script.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partial/script.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +116,7 @@
       <workItem from="1668089308826" duration="912000" />
       <workItem from="1668091075739" duration="11766000" />
       <workItem from="1668128420838" duration="4243000" />
-      <workItem from="1668132780827" duration="2143000" />
+      <workItem from="1668132780827" duration="19469000" />
     </task>
     <servers />
   </component>

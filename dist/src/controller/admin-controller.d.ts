@@ -4,9 +4,12 @@ export declare class AdminController {
     private productService;
     constructor();
     showAdmin: (req: Request, res: Response) => Promise<void>;
+    revenue: (req: Request, res: Response) => Promise<void>;
     listProduct: (req: Request, res: Response) => Promise<void>;
     showCreate: (req: Request, res: Response) => Promise<void>;
     create: (req: Request, res: Response) => Promise<void>;
+    showUpdate: (req: Request, res: Response) => Promise<void>;
+    deleteProduct: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: AdminController;
 export default _default;

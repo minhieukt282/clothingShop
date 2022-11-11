@@ -54,16 +54,51 @@
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="<%= item.image %>" alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="/details/<%= item.product_id %>">
-                                <i class="fa fa-search"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fas fa-cog"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i
+                            <a class="btn btn-outline-dark btn-square" data-toggle="modal"
+                               data-target="#modal-<%= item.product_id %>"><i
+                                        class="fas fa-cog"></i>
+                            </a>
+                            <div class="modal fade" id="modal-<%= item.product_id %>" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this
+                                                product?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <center>
+                                                <form method="post" action="/admin/delete/<%= item.product_id %>">
+                                                    <button type="submit"
+                                                            style="border: none; background-color: #00CCCC; color: white; padding: 0px 10px">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                                <hr>
+                                                <a href="">
+                                                    <button style="border: none; background-color: #00CCCC; color: white; padding: 0px 22px">
+                                                        Exit
+                                                    </button>
+                                                </a>
+                                            </center>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <a class="btn btn-outline-dark btn-square" href="/admin/update/<%= item.product_id %>"><i
                                         class="fa fa-edit"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate"
-                           href="/details/<%= item.product_id %>"><%= item.product_name %></a>
+                           href="/admin/update/<%= item.product_id %>"><%= item.product_name %></a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
                             <h5>$<%= item.price %></h5>
                         </div>

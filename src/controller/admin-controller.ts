@@ -14,7 +14,19 @@ export class AdminController {
 
 
     showAdmin = async (req: Request, res: Response) => {
-        res.render('admin/adminHome', {})
+        let date = new Date()
+        let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        let dataBills = await this.adminService.showBill(today, today)
+        res.render('admin/adminHome', {
+            listData: dataBills
+        })
+    }
+
+    revenue = async (req: Request, res: Response) => {
+        let dataBills = await this.adminService.showBill(req.body.time1, req.body.time2)
+        res.render('admin/adminHome', {
+            listData: dataBills
+        })
     }
 
     listProduct = async (req: Request, res: Response) => {
@@ -27,20 +39,32 @@ export class AdminController {
     }
 
     showCreate = async (req: Request, res: Response) => {
-
-        res.render('admin/create', {})
+        res.render('admin/create')
     }
 
     create = async (req: Request, res: Response) => {
         let file = req.files
         if (file) {
-            let product = req.body;
+            let newProduct = req.body;
             let image = file.image as UploadedFile;
             await image.mv('./public/storage/' + image.name);
-            product.image = 'storage/' + image.name;
-            await this.adminService.createProduct(product)
-            res.redirect('/create');
+            newProduct.image = '/storage/' + image.name;
+            await this.adminService.createProduct(newProduct)
+            res.redirect('/admin/create');
         }
+    }
+
+    showUpdate = async (req: Request, res: Response) => {
+        // console.log(req.params)
+        let product = await this.adminService.showProduct(+req.params.productId)
+        console.log(product)
+        res.render('admin/update', {
+            product: product
+        })
+    }
+    deleteProduct = async (req: Request, res: Response) => {
+        await this.adminService.delProduct(+req.params.productId)
+        res.redirect('/admin/list')
     }
 
 

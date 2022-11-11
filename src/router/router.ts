@@ -4,6 +4,6 @@ import {routerLogin} from "./router-login";
 import {routerAdmin} from "./router-admin";
 
 export const router = Router()
-router.use('', routerProduct)
-router.use('', routerLogin )
-router.use('', routerAdmin)
+router.use('/shops', routerProduct)
+router.use('/users', routerLogin )
+router.use('/admin', routerAdmin)
