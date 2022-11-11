@@ -50,7 +50,7 @@ class LoginService {
             return account;
         };
         data_source_1.AppDataSource.initialize().then(connection => {
-            console.log('Connect success');
+            console.log('Login service connect success');
             this.accountRepository = connection.getRepository(account_1.Account);
         });
     }

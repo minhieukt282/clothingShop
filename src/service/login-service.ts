@@ -6,7 +6,7 @@ export class LoginService {
 
     constructor() {
         AppDataSource.initialize().then(connection => {
-            console.log('Connect success')
+            console.log('Login service connect success')
             this.accountRepository = connection.getRepository(Account)
         })
     }

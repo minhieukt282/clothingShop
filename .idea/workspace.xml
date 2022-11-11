@@ -5,67 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3357390-016f-4eeb-9cd2-a43bec7cde74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/product/guess.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/59b1b8ca-4abe-4261-bb9c-f4e48fb032f5.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/admin-controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/router-admin.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/admin-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/admin/adminHome.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/admin/create.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/admin/nav-bar.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/admin/product.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/56176cdf-1cb0-4d36-a0e4-d9141e11caf3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56176cdf-1cb0-4d36-a0e4-d9141e11caf3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/controller/login-controller.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/controller/login-controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/controller/login-controller.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/controller/product-controller.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/controller/product-controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/controller/product-controller.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/data-source.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/data-source.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/data-source.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/account.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/account.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/account.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/bill.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/bill.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/bill.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/category.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/category.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/category.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/details.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/details.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/details.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/gender.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/gender.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/gender.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/product.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/product.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/model/product.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router-login.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router-login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router-login.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router-product.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router-product.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router-product.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/login-service.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/login-service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/login-service.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/product-service.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/product-service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/product-service.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/router/router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/service/login-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/login-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/service/login-service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/login-service.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/login-controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/login-controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/product-controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/product-controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/router-login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router-login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/router-product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router-product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/login-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/login-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/product-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/product-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partial/nav-bar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partial/nav-bar.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partial/sidebar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partial/sidebar.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/index.ejs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +111,8 @@
       <workItem from="1668042122445" duration="27166000" />
       <workItem from="1668089308826" duration="912000" />
       <workItem from="1668091075739" duration="11766000" />
-      <workItem from="1668128420838" duration="377000" />
+      <workItem from="1668128420838" duration="4243000" />
+      <workItem from="1668132780827" duration="2143000" />
     </task>
     <servers />
   </component>
