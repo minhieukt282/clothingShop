@@ -26,11 +26,22 @@ export class ProductService {
     }
 
     findAll = async () => {
+        let date = new Date()
+        let sevenDayAgo = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() - 7)
+        let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+        let limitProducts = await this.productRepository.query(`select *
+                                                           from products limit 12`)
         let products = await this.productRepository.find()
         let category = await this.categoryRepository.find()
         let gender = await this.genderRepository.find()
+        let newArrived = await this.productRepository.query(`select *
+                                                             from products as p
+                                                             where p.time between '${sevenDayAgo}' and '${today}'
+                                                             order by p.time desc limit 8`)
         let allItem = {
             listProduct: products,
+            limitProduct: limitProducts,
+            newArrived: newArrived,
             category: category,
             gender: gender
         }

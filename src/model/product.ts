@@ -18,4 +18,6 @@ export class Product {
     public category_id: number
     @Column({type: 'int'})
     public gender_id: number
+    @Column({type: 'date'})
+    public time: Date
 }

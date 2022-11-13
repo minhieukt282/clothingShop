@@ -7,6 +7,8 @@ export declare class ProductService {
     constructor();
     findAll: () => Promise<{
         listProduct: any;
+        limitProduct: any;
+        newArrived: any;
         category: any;
         gender: any;
     }>;

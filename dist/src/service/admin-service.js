@@ -21,14 +21,6 @@ class AdminService {
                                                      group by time`);
             return bills;
         };
-        this.showProduct = async (productId) => {
-            let product = await this.productRepository.find({
-                where: {
-                    product_id: productId
-                }
-            });
-            return product;
-        };
         this.updateProduct = async (req) => {
             let newUpdate = {
                 product_id: +req.params.productId,

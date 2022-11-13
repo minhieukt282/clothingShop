@@ -35,15 +35,6 @@ export class AdminService {
         return bills
     }
 
-    showProduct = async (productId: number) => {
-        let product = await this.productRepository.find({
-            where: {
-                product_id: productId
-            }
-        })
-        return product
-    }
-
     updateProduct = async (req: Request) => {
         let newUpdate = {
             product_id: +req.params.productId,

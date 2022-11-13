@@ -12,7 +12,8 @@ class ProductController {
         this.showIndex = async (req, res) => {
             let allItem = await this.productService.findAll();
             res.render('product/guess', {
-                listProduct: allItem.listProduct,
+                listProduct: allItem.limitProduct,
+                newArrived: allItem.newArrived,
                 category: allItem.category,
                 gender: allItem.gender
             });
@@ -33,7 +34,8 @@ class ProductController {
             if (isStatus) {
                 let allItem = await this.productService.findAll();
                 res.render('product/home', {
-                    listProduct: allItem.listProduct,
+                    listProduct: allItem.limitProduct,
+                    newArrived: allItem.newArrived,
                     category: allItem.category,
                     gender: allItem.gender
                 });

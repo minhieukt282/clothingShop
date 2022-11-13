@@ -45,6 +45,10 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'int' }),
     __metadata("design:type", Number)
 ], Product.prototype, "gender_id", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'date' }),
+    __metadata("design:type", Date)
+], Product.prototype, "time", void 0);
 Product = __decorate([
     (0, typeorm_1.Entity)({ name: 'products' })
 ], Product);

@@ -71,9 +71,12 @@ export class AdminController {
             let file = req.files
             if (file) {
                 let newProduct = req.body;
+                let date = new Date()
+                let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
                 let image = file.image as UploadedFile;
                 await image.mv('./public/storage/' + image.name);
                 newProduct.image = '/storage/' + image.name;
+                newProduct.time = today;
                 await this.adminService.createProduct(newProduct)
                 res.redirect('/admin/create');
             }

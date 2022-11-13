@@ -6,7 +6,6 @@ export declare class AdminService {
     constructor();
     createProduct: (newProduct: any) => Promise<void>;
     showBill: (time1: string, time2: string) => Promise<any>;
-    showProduct: (productId: number) => Promise<any>;
     updateProduct: (req: Request) => Promise<void>;
     updateImage: (req: Request, url: string) => Promise<void>;
     delProduct: (productId: number) => Promise<void>;

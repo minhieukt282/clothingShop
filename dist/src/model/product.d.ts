@@ -7,4 +7,5 @@ export declare class Product {
     image: string;
     category_id: number;
     gender_id: number;
+    time: Date;
 }

@@ -5,6 +5,8 @@ export declare class ProductController {
     constructor();
     navBar: (req: Request, res: Response) => Promise<{
         listProduct: any;
+        limitProduct: any;
+        newArrived: any;
         category: any;
         gender: any;
     }>;

@@ -6,22 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="a3357390-016f-4eeb-9cd2-a43bec7cde74" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/controller/admin-controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/admin-controller.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/controller/admin-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/admin-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/controller/admin-controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/admin-controller.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router-admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/router/router-admin.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router-admin.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/controller/product-controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/product-controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/controller/product-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/product-controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/controller/product-controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/product-controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/model/product.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/model/product.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/model/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/model/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/model/product.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/model/product.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/service/admin-service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/admin-service.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/service/admin-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/admin-service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/service/admin-service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/admin-service.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/service/product-service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/product-service.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/service/product-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/product-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/src/service/product-service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/product-service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/admin-controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/admin-controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/router-admin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router-admin.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/product-controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/product-controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/product.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/admin-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/admin-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/product-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/product-service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/admin/product.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/product.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/admin/update.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/admin/update.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/cart.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/cart.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/product/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/details.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product-main/main.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product-main/main.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/guess.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/guess.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/home.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +118,7 @@
       <workItem from="1668128420838" duration="4243000" />
       <workItem from="1668132780827" duration="23057000" />
       <workItem from="1668305466344" duration="208000" />
-      <workItem from="1668305699596" duration="16604000" />
+      <workItem from="1668305699596" duration="20542000" />
     </task>
     <servers />
   </component>
