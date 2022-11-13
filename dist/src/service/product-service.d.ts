@@ -25,6 +25,7 @@ export declare class ProductService {
     paymentDone: (accountId: number) => Promise<void>;
     showMyHistory: (accountId: number, time1: string, time2: string) => Promise<any>;
     showBillDetails: (accountId: number) => Promise<any>;
+    searchByName: (value: string) => Promise<any>;
 }
 declare const _default: ProductService;
 export default _default;

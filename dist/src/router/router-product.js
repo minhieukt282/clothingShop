@@ -20,4 +20,5 @@ exports.routerProduct.post('/delete/:productId', product_controller_1.default.de
 exports.routerProduct.get('/history', product_controller_1.default.showHistory);
 exports.routerProduct.post('/history', product_controller_1.default.getHistory);
 exports.routerProduct.get('/history/bills/:billId', product_controller_1.default.getBillDetails);
+exports.routerProduct.post('/search', product_controller_1.default.search);
 //# sourceMappingURL=router-product.js.map

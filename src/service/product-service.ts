@@ -13,7 +13,6 @@ export class ProductService {
     private billRepository: any
     private detailsRepository: any
 
-
     constructor() {
         AppDataSource.initialize().then(connection => {
             console.log('Connect success')
@@ -200,6 +199,7 @@ export class ProductService {
                                                        order by b.time desc `)
         return myBills
     }
+
     showBillDetails = async (accountId: number) => {
         let billDetails = await this.billRepository.query(`select b.time, p.product_name, d.quantity, p.price
                                                            from bill as b
@@ -208,6 +208,13 @@ export class ProductService {
                                                            where b.bill_id = ${accountId}
                                                              and b.status = 1`)
         return billDetails
+    }
+
+    searchByName = async (value: string) => {
+        let products = await this.productRepository.query(`select *
+                                                           from products
+                                                           where product_name like '%${value}%'`)
+        return products
     }
 }
 

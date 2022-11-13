@@ -12,10 +12,10 @@ routerProduct.get('/:genderName/:categoryName', productController.genderCategory
 routerProduct.get('/mycart', productController.myCart)
 routerProduct.post('/mycart', productController.payment)
 routerProduct.post('/delete/:productId', productController.deleteProduct)
-
 routerProduct.get('/history', productController.showHistory)
 routerProduct.post('/history', productController.getHistory)
 routerProduct.get('/history/bills/:billId', productController.getBillDetails)
-// routerProduct.post('/bills/:billId', productController.getHistory)
+routerProduct.post('/search', productController.search)
+
 
 

@@ -205,6 +205,30 @@ class ProductController {
                 res.redirect('/users/login');
             }
         };
+        this.search = async (req, res) => {
+            let isStatus = await this.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+                let admin = 1;
+                if (+req.cookies.account_id === admin) {
+                    let products = await this.productService.searchByName(req.body.searchValue);
+                    res.render('admin/product', {
+                        listProduct: products
+                    });
+                }
+                else {
+                    let allItem = await this.productService.findAll();
+                    let products = await this.productService.searchByName(req.body.searchValue);
+                    res.render('product/list', {
+                        listProduct: products,
+                        category: allItem.category,
+                        gender: allItem.gender
+                    });
+                }
+            }
+            else {
+                res.redirect('/users/login');
+            }
+        };
         this.productService = new product_service_1.ProductService();
         this.loginService = new login_service_1.LoginService();
     }

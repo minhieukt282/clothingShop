@@ -24,6 +24,7 @@ export declare class ProductController {
     showHistory: (req: Request, res: Response) => Promise<void>;
     getHistory: (req: Request, res: Response) => Promise<void>;
     getBillDetails: (req: Request, res: Response) => Promise<void>;
+    search: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: ProductController;
 export default _default;

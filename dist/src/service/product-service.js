@@ -181,6 +181,12 @@ class ProductService {
                                                              and b.status = 1`);
             return billDetails;
         };
+        this.searchByName = async (value) => {
+            let products = await this.productRepository.query(`select *
+                                                           from products
+                                                           where product_name like '%${value}%'`);
+            return products;
+        };
         data_source_1.AppDataSource.initialize().then(connection => {
             console.log('Connect success');
             this.productRepository = connection.getRepository(product_1.Product);

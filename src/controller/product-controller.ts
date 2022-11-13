@@ -216,6 +216,29 @@ export class ProductController {
         }
     }
 
+    search = async (req: Request, res: Response) => {
+        let isStatus = await this.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            let admin = 1
+            if (+req.cookies.account_id === admin) {
+                let products = await this.productService.searchByName(req.body.searchValue)
+                res.render('admin/product', {
+                    listProduct: products
+                })
+            } else {
+                let allItem = await this.productService.findAll()
+                let products = await this.productService.searchByName(req.body.searchValue)
+                res.render('product/list', {
+                    listProduct: products,
+                    category: allItem.category,
+                    gender: allItem.gender
+                })
+            }
+        } else {
+            res.redirect('/users/login')
+        }
+    }
+
 }
 
 export default new ProductController()
