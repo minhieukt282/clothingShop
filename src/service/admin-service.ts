@@ -3,6 +3,7 @@ import {Product} from "../model/product";
 import {Bill} from "../model/bill";
 import {Details} from "../model/details";
 import {Between} from "typeorm";
+import {Response, Request} from "express";
 
 export class AdminService {
     private productRepository: any
@@ -43,7 +44,28 @@ export class AdminService {
         return product
     }
 
-    delProduct = async (productId: number)=>{
+    updateProduct = async (req: Request) => {
+        let newUpdate = {
+            product_id: +req.params.productId,
+            product_name: req.body.product_name,
+            description: req.body.description,
+            quantity: +req.body.quantity,
+            price: +req.body.price,
+            category_id: +req.body.category_id,
+            gender_id: +req.body.gender_id
+        }
+        await this.productRepository.save(newUpdate)
+    }
+
+    updateImage = async (req: Request, url: string) => {
+        let newImage = {
+            product_id: +req.params.productId,
+            image: url
+        }
+        await this.productRepository.save(newImage)
+    }
+
+    delProduct = async (productId: number) => {
         await this.productRepository.delete(productId)
     }
 

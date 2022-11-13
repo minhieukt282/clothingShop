@@ -29,6 +29,25 @@ class AdminService {
             });
             return product;
         };
+        this.updateProduct = async (req) => {
+            let newUpdate = {
+                product_id: +req.params.productId,
+                product_name: req.body.product_name,
+                description: req.body.description,
+                quantity: +req.body.quantity,
+                price: +req.body.price,
+                category_id: +req.body.category_id,
+                gender_id: +req.body.gender_id
+            };
+            await this.productRepository.save(newUpdate);
+        };
+        this.updateImage = async (req, url) => {
+            let newImage = {
+                product_id: +req.params.productId,
+                image: url
+            };
+            await this.productRepository.save(newImage);
+        };
         this.delProduct = async (productId) => {
             await this.productRepository.delete(productId);
         };

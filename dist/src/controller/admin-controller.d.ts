@@ -10,6 +10,7 @@ export declare class AdminController {
     showCreate: (req: Request, res: Response) => Promise<void>;
     create: (req: Request, res: Response) => Promise<void>;
     showUpdate: (req: Request, res: Response) => Promise<void>;
+    update: (req: Request, res: Response) => Promise<void>;
     deleteProduct: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: AdminController;

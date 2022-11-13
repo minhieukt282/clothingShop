@@ -26,7 +26,7 @@ export class AdminController {
                 listData: dataBills
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
@@ -38,7 +38,7 @@ export class AdminController {
                 listData: dataBills
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
@@ -52,7 +52,7 @@ export class AdminController {
                 gender: allItem.gender
             })
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
@@ -61,29 +61,69 @@ export class AdminController {
         if (isStatus) {
             res.render('admin/create')
         } else {
-            res.redirect('/login')
+            res.redirect('/users/login')
         }
     }
 
     create = async (req: Request, res: Response) => {
-        let file = req.files
-        if (file) {
-            let newProduct = req.body;
-            let image = file.image as UploadedFile;
-            await image.mv('./public/storage/' + image.name);
-            newProduct.image = '/storage/' + image.name;
-            await this.adminService.createProduct(newProduct)
-            res.redirect('/admin/create');
+        let isStatus = await this.productController.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            let file = req.files
+            if (file) {
+                let newProduct = req.body;
+                let image = file.image as UploadedFile;
+                await image.mv('./public/storage/' + image.name);
+                newProduct.image = '/storage/' + image.name;
+                await this.adminService.createProduct(newProduct)
+                res.redirect('/admin/create');
+            }
+        } else {
+            res.redirect('/users/login')
         }
     }
 
     showUpdate = async (req: Request, res: Response) => {
-        console.log("asdasdas")
+        let isStatus = await this.productController.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            let navItem = await this.productController.navBar(req, res)
+            let allItem = await this.productService.findById(+req.params.productId)
+            res.render('admin/update', {
+                listProduct: allItem.listProduct,
+                product: allItem.product,
+                category: navItem.category,
+                gender: navItem.gender
+            })
+        } else {
+            res.redirect('/users/login')
+        }
+    }
+
+    update = async (req: Request, res: Response) => {
+        let isStatus = await this.productController.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            let file = req.files
+            if (file) {
+                let image = file.image as UploadedFile;
+                await image.mv('./public/storage/' + image.name);
+                await this.adminService.updateImage(req, `/storage/${image.name}`)
+                res.redirect(`/admin/update/${req.params.productId}`)
+            } else {
+                await this.adminService.updateProduct(req)
+                res.redirect(`/admin/update/${req.params.productId}`)
+            }
+        } else {
+            res.redirect('/users/login')
+        }
     }
 
     deleteProduct = async (req: Request, res: Response) => {
-        await this.adminService.delProduct(+req.params.productId)
-        res.redirect('/admin/list')
+        let isStatus = await this.productController.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            await this.adminService.delProduct(+req.params.productId)
+            res.redirect('/admin/list')
+        } else {
+            res.redirect('/users/login')
+        }
     }
 
 

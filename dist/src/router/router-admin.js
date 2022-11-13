@@ -13,5 +13,6 @@ exports.routerAdmin.get('/list', admin_controller_1.default.showListProduct);
 exports.routerAdmin.get('/create', admin_controller_1.default.showCreate);
 exports.routerAdmin.post('/create', admin_controller_1.default.create);
 exports.routerAdmin.get('/update/:productId', admin_controller_1.default.showUpdate);
+exports.routerAdmin.post('/update/:productId', admin_controller_1.default.update);
 exports.routerAdmin.post('/delete/:productId', admin_controller_1.default.deleteProduct);
 //# sourceMappingURL=router-admin.js.map

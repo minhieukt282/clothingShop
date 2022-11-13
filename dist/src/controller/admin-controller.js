@@ -17,7 +17,7 @@ class AdminController {
                 });
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.getRevenue = async (req, res) => {
@@ -29,7 +29,7 @@ class AdminController {
                 });
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.showListProduct = async (req, res) => {
@@ -43,7 +43,7 @@ class AdminController {
                 });
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.showCreate = async (req, res) => {
@@ -52,26 +52,70 @@ class AdminController {
                 res.render('admin/create');
             }
             else {
-                res.redirect('/login');
+                res.redirect('/users/login');
             }
         };
         this.create = async (req, res) => {
-            let file = req.files;
-            if (file) {
-                let newProduct = req.body;
-                let image = file.image;
-                await image.mv('./public/storage/' + image.name);
-                newProduct.image = '/storage/' + image.name;
-                await this.adminService.createProduct(newProduct);
-                res.redirect('/admin/create');
+            let isStatus = await this.productController.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+                let file = req.files;
+                if (file) {
+                    let newProduct = req.body;
+                    let image = file.image;
+                    await image.mv('./public/storage/' + image.name);
+                    newProduct.image = '/storage/' + image.name;
+                    await this.adminService.createProduct(newProduct);
+                    res.redirect('/admin/create');
+                }
+            }
+            else {
+                res.redirect('/users/login');
             }
         };
         this.showUpdate = async (req, res) => {
-            console.log("asdasdas");
+            let isStatus = await this.productController.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+                let navItem = await this.productController.navBar(req, res);
+                let allItem = await this.productService.findById(+req.params.productId);
+                res.render('admin/update', {
+                    listProduct: allItem.listProduct,
+                    product: allItem.product,
+                    category: navItem.category,
+                    gender: navItem.gender
+                });
+            }
+            else {
+                res.redirect('/users/login');
+            }
+        };
+        this.update = async (req, res) => {
+            let isStatus = await this.productController.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+                let file = req.files;
+                if (file) {
+                    let image = file.image;
+                    await image.mv('./public/storage/' + image.name);
+                    await this.adminService.updateImage(req, `/storage/${image.name}`);
+                    res.redirect(`/admin/update/${req.params.productId}`);
+                }
+                else {
+                    await this.adminService.updateProduct(req);
+                    res.redirect(`/admin/update/${req.params.productId}`);
+                }
+            }
+            else {
+                res.redirect('/users/login');
+            }
         };
         this.deleteProduct = async (req, res) => {
-            await this.adminService.delProduct(+req.params.productId);
-            res.redirect('/admin/list');
+            let isStatus = await this.productController.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+                await this.adminService.delProduct(+req.params.productId);
+                res.redirect('/admin/list');
+            }
+            else {
+                res.redirect('/users/login');
+            }
         };
         this.adminService = new admin_service_1.AdminService();
         this.productService = new product_service_1.ProductService();
