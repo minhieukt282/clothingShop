@@ -110,19 +110,21 @@ export class ProductController {
     }
 
     genderCategory = async (req: Request, res: Response) => {
-        let products = ''
-        let navItem = await this.navBar(req, res)
-        // console.log(req.params.genderName, req.params.categoryName)
-        if (req.params.genderName !== 'mail' && req.params.categoryName !== 'jqBootstrapValidation.min.js"') {
-            products = await this.productService.findByGenderCategory(req.params.genderName, req.params.categoryName)
+        let isStatus = await this.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            let products = ''
+            let navItem = await this.navBar(req, res)
+            if (req.params.genderName !== 'mail' && req.params.categoryName !== 'jqBootstrapValidation.min.js"') {
+                products = await this.productService.findByGenderCategory(req.params.genderName, req.params.categoryName)
+            }
+            res.render('product/list', {
+                listProduct: products,
+                category: navItem.category,
+                gender: navItem.gender
+            })
+        } else {
+            res.redirect('/users/login')
         }
-        // console.log('products',products)
-        // res.render('product/list',{
-        //     listProduct: products,
-        //     category: navItem.category,
-        //     gender: navItem.gender
-        // })
-        // res.redirect('/users/mycart')
     }
 
     myCart = async (req: Request, res: Response) => {
@@ -177,8 +179,8 @@ export class ProductController {
         } else {
             res.redirect('/users/login')
         }
-
     }
+
     getHistory = async (req: Request, res: Response) => {
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
@@ -193,11 +195,14 @@ export class ProductController {
             res.redirect('/users/login')
         }
     }
+
     getBillDetails = async (req: Request, res: Response) => {
+        console.log('vao day chua')
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
             let navItem = await this.navBar(req, res)
             let billDetails = await this.productService.showBillDetails(+req.params.billId)
+            console.log("get bill")
             res.render('product/billDetails', {
                 bills: billDetails,
                 category: navItem.category,
@@ -207,7 +212,6 @@ export class ProductController {
             res.redirect('/users/login')
         }
     }
-
 
 }
 

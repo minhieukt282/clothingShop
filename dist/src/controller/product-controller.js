@@ -100,10 +100,21 @@ class ProductController {
             }
         };
         this.genderCategory = async (req, res) => {
-            let products = '';
-            let navItem = await this.navBar(req, res);
-            if (req.params.genderName !== 'mail' && req.params.categoryName !== 'jqBootstrapValidation.min.js"') {
-                products = await this.productService.findByGenderCategory(req.params.genderName, req.params.categoryName);
+            let isStatus = await this.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+                let products = '';
+                let navItem = await this.navBar(req, res);
+                if (req.params.genderName !== 'mail' && req.params.categoryName !== 'jqBootstrapValidation.min.js"') {
+                    products = await this.productService.findByGenderCategory(req.params.genderName, req.params.categoryName);
+                }
+                res.render('product/list', {
+                    listProduct: products,
+                    category: navItem.category,
+                    gender: navItem.gender
+                });
+            }
+            else {
+                res.redirect('/users/login');
             }
         };
         this.myCart = async (req, res) => {
@@ -175,10 +186,12 @@ class ProductController {
             }
         };
         this.getBillDetails = async (req, res) => {
+            console.log('vao day chua');
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
             if (isStatus) {
                 let navItem = await this.navBar(req, res);
                 let billDetails = await this.productService.showBillDetails(+req.params.billId);
+                console.log("get bill");
                 res.render('product/billDetails', {
                     bills: billDetails,
                     category: navItem.category,

@@ -66,17 +66,12 @@ export class ProductService {
     }
 
     findByGenderCategory = async (genderName: string, categoryName: string) => {
-        let category = await this.categoryRepository.find({where: {category_name: categoryName}})
-        // console.log("category", category[0].category_id)
-        let gender = await this.genderRepository.find({where: {gender_name: genderName}})
-        // console.log("gender", gender[0].gender_id)
-        let products = await this.productRepository.find({
-            where: {
-                category_id: category[0].category_id,
-                gender_id: gender[0].gender_id
-            }
-        })
-        // console.log("product", products)
+        let products = await this.productRepository.query(`select p.product_id, p.product_name, p.image, p.quantity, p.price
+                                                           from products as p
+                                                                    join category c on p.category_id = c.category_id
+                                                                    join gender g on p.gender_id = g.gender_id
+                                                           where c.category_name = '${categoryName}'
+                                                             and g.gender_name = '${genderName}'`)
         return products
     }
 
