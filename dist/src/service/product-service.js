@@ -7,7 +7,6 @@ const category_1 = require("../model/category");
 const gender_1 = require("../model/gender");
 const bill_1 = require("../model/bill");
 const details_1 = require("../model/details");
-const typeorm_1 = require("typeorm");
 class ProductService {
     constructor() {
         this.findAll = async () => {
@@ -15,7 +14,7 @@ class ProductService {
             let sevenDayAgo = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() - 7);
             let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
             let limitProducts = await this.productRepository.query(`select *
-                                                           from products limit 12`);
+                                                                from products limit 12`);
             let products = await this.productRepository.find();
             let category = await this.categoryRepository.find();
             let gender = await this.genderRepository.find();
@@ -162,24 +161,27 @@ class ProductService {
             });
         };
         this.showMyHistory = async (accountId, time1, time2) => {
-            let myBills = await this.billRepository.find({
-                where: {
-                    account_id: accountId,
-                    status: true,
-                    time: (0, typeorm_1.Between)(time1, time2)
-                }
-            });
-            console.log(myBills);
-            let arrayDetails = [];
-            for (let i = 0; i < myBills.length; i++) {
-                let myDetails = await this.detailsRepository.find({
-                    where: {
-                        bill_id: myBills[i].bill_id
-                    }
-                });
-                arrayDetails.push(myDetails);
-            }
-            console.log(arrayDetails);
+            let myBills = await this.billRepository.query(`select b.time as time, b.bill_id as bill, SUM(p.price * d.quantity) as total
+                                                       from bill as b
+                                                           join details d
+                                                       on b.bill_id = d.bill_id
+                                                           join products p on d.product_id = p.product_id
+                                                       where b.account_id = ${accountId}
+                                                         and b.status = 1
+                                                         and b.time between '${time1}'
+                                                         and '${time2}'
+                                                       group by b.bill_id
+                                                       order by b.time desc `);
+            return myBills;
+        };
+        this.showBillDetails = async (accountId) => {
+            let billDetails = await this.billRepository.query(`select b.time, p.product_name, d.quantity, p.price
+                                                           from bill as b
+                                                                    join details d on b.bill_id = d.bill_id
+                                                                    join products p on d.product_id = p.product_id
+                                                           where b.bill_id = ${accountId}
+                                                             and b.status = 1`);
+            return billDetails;
         };
         data_source_1.AppDataSource.initialize().then(connection => {
             console.log('Connect success');

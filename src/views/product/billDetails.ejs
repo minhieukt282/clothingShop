@@ -26,18 +26,18 @@
                 <thead class="thead-dark">
                 <tr>
                     <th>Time</th>
-                    <th>Bills Id</th>
-                    <th>Total</th>
+                    <th>Product's name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
                 </tr>
                 </thead>
                 <tbody class="align-middle">
                 <% for( let i = 0; i < bills.length; i++){ %>
                     <tr>
-                        <td class="align-middle"><a href="/shops/bills/<%= bills[i].bill %>"><%= bills[i].time %></a>
-
-                        </td>
-                        <td class="align-middle"><%= bills[i].bill %></td>
-                        <td class="align-middle">$<%= bills[i].total %></td>
+                        <td class="align-middle"><%= bills[i].time %></td>
+                        <td class="align-middle"><%= bills[i].product_name %></td>
+                        <td class="align-middle"><%= bills[i].quantity %></td>
+                        <td class="align-middle">$<%= bills[i].price %></td>
                     </tr>
                 <% } %>
                 </tbody>

@@ -23,7 +23,8 @@ export declare class ProductService {
     showDetails: (accountId: number) => Promise<any[]>;
     removeProductFromCart: (accountId: number, productId: number) => Promise<void>;
     paymentDone: (accountId: number) => Promise<void>;
-    showMyHistory: (accountId: number, time1: string, time2: string) => Promise<void>;
+    showMyHistory: (accountId: number, time1: string, time2: string) => Promise<any>;
+    showBillDetails: (accountId: number) => Promise<any>;
 }
 declare const _default: ProductService;
 export default _default;

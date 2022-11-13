@@ -165,22 +165,47 @@ export class ProductController {
     showHistory = async (req: Request, res: Response) => {
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
-            // let navItem = await this.navBar(req, res)
-            // let date = new Date()
-            // let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-            // let time = '2022-11-10'
-            // await this.productService.showMyHistory(+req.cookies.account_id, time, time)
-            // // res.render('product/history', {
-            // //     category: navItem.category,
-            // //     gender: navItem.gender
-            // // })
+            let navItem = await this.navBar(req, res)
+            let date = new Date()
+            let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+            let bills = await this.productService.showMyHistory(+req.cookies.account_id, today, today)
+            res.render('product/history', {
+                bills: bills,
+                category: navItem.category,
+                gender: navItem.gender
+            })
         } else {
             res.redirect('/users/login')
         }
 
     }
     getHistory = async (req: Request, res: Response) => {
-        res.render('product/history')
+        let isStatus = await this.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            let navItem = await this.navBar(req, res)
+            let bills = await this.productService.showMyHistory(+req.cookies.account_id, req.body.time1, req.body.time2)
+            res.render('product/history', {
+                bills: bills,
+                category: navItem.category,
+                gender: navItem.gender
+            })
+        } else {
+            res.redirect('/users/login')
+        }
+    }
+    getBillDetails = async (req: Request, res: Response) => {
+        let isStatus = await this.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            let navItem = await this.navBar(req, res)
+            let billDetails = await this.productService.showBillDetails(+req.params.billId)
+            res.render('product/billDetails', {
+                bills: billDetails,
+                category: navItem.category,
+                gender: navItem.gender
+            })
+        } else {
+            res.redirect('/users/login')
+        }
     }
 
 

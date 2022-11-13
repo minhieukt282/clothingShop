@@ -30,7 +30,7 @@ export class ProductService {
         let sevenDayAgo = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() - 7)
         let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
         let limitProducts = await this.productRepository.query(`select *
-                                                           from products limit 12`)
+                                                                from products limit 12`)
         let products = await this.productRepository.find()
         let category = await this.categoryRepository.find()
         let gender = await this.genderRepository.find()
@@ -192,25 +192,27 @@ export class ProductService {
     }
 
     showMyHistory = async (accountId: number, time1: string, time2: string) => {
-        let myBills = await this.billRepository.find({
-            where: {
-                account_id: accountId,
-                status: true,
-                time: Between(time1, time2)
-            }
-        })
-        console.log(myBills)
-        let arrayDetails = []
-        for (let i = 0; i < myBills.length; i++) {
-            let myDetails = await this.detailsRepository.find({
-                where: {
-                    bill_id: myBills[i].bill_id
-                }
-            })
-            arrayDetails.push(myDetails)
-        }
-        console.log(arrayDetails)
-
+        let myBills = await this.billRepository.query(`select b.time as time, b.bill_id as bill, SUM(p.price * d.quantity) as total
+                                                       from bill as b
+                                                           join details d
+                                                       on b.bill_id = d.bill_id
+                                                           join products p on d.product_id = p.product_id
+                                                       where b.account_id = ${accountId}
+                                                         and b.status = 1
+                                                         and b.time between '${time1}'
+                                                         and '${time2}'
+                                                       group by b.bill_id
+                                                       order by b.time desc `)
+        return myBills
+    }
+    showBillDetails = async (accountId: number) => {
+        let billDetails = await this.billRepository.query(`select b.time, p.product_name, d.quantity, p.price
+                                                           from bill as b
+                                                                    join details d on b.bill_id = d.bill_id
+                                                                    join products p on d.product_id = p.product_id
+                                                           where b.bill_id = ${accountId}
+                                                             and b.status = 1`)
+        return billDetails
     }
 }
 

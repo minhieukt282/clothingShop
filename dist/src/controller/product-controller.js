@@ -145,13 +145,49 @@ class ProductController {
         this.showHistory = async (req, res) => {
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
             if (isStatus) {
+                let navItem = await this.navBar(req, res);
+                let date = new Date();
+                let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+                let bills = await this.productService.showMyHistory(+req.cookies.account_id, today, today);
+                res.render('product/history', {
+                    bills: bills,
+                    category: navItem.category,
+                    gender: navItem.gender
+                });
             }
             else {
                 res.redirect('/users/login');
             }
         };
         this.getHistory = async (req, res) => {
-            res.render('product/history');
+            let isStatus = await this.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+                let navItem = await this.navBar(req, res);
+                let bills = await this.productService.showMyHistory(+req.cookies.account_id, req.body.time1, req.body.time2);
+                res.render('product/history', {
+                    bills: bills,
+                    category: navItem.category,
+                    gender: navItem.gender
+                });
+            }
+            else {
+                res.redirect('/users/login');
+            }
+        };
+        this.getBillDetails = async (req, res) => {
+            let isStatus = await this.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+                let navItem = await this.navBar(req, res);
+                let billDetails = await this.productService.showBillDetails(+req.params.billId);
+                res.render('product/billDetails', {
+                    bills: billDetails,
+                    category: navItem.category,
+                    gender: navItem.gender
+                });
+            }
+            else {
+                res.redirect('/users/login');
+            }
         };
         this.productService = new product_service_1.ProductService();
         this.loginService = new login_service_1.LoginService();

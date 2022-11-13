@@ -16,4 +16,8 @@ exports.routerProduct.get('/category/:categoryName', product_controller_1.defaul
 exports.routerProduct.get('/mycart', product_controller_1.default.myCart);
 exports.routerProduct.post('/mycart', product_controller_1.default.payment);
 exports.routerProduct.post('/delete/:productId', product_controller_1.default.deleteProduct);
+exports.routerProduct.get('/history', product_controller_1.default.showHistory);
+exports.routerProduct.post('/history', product_controller_1.default.getHistory);
+exports.routerProduct.get('/bills/:billId', product_controller_1.default.getBillDetails);
+exports.routerProduct.post('/bills/:billId', product_controller_1.default.getHistory);
 //# sourceMappingURL=router-product.js.map
