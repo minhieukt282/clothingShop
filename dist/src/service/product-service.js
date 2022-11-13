@@ -7,6 +7,7 @@ const category_1 = require("../model/category");
 const gender_1 = require("../model/gender");
 const bill_1 = require("../model/bill");
 const details_1 = require("../model/details");
+const typeorm_1 = require("typeorm");
 class ProductService {
     constructor() {
         this.findAll = async () => {
@@ -21,7 +22,7 @@ class ProductService {
             return allItem;
         };
         this.findById = async (id) => {
-            let product = await this.productRepository.findOneById(+id);
+            let product = await this.productRepository.findOneById(id);
             let products = await this.productRepository.find();
             let allItem = {
                 listProduct: products,
@@ -122,6 +123,21 @@ class ProductService {
                 return details;
             }
         };
+        this.removeProductFromCart = async (accountId, productId) => {
+            let bills = await this.billRepository.find({
+                where: {
+                    account_id: accountId,
+                    status: 'false'
+                }
+            });
+            let details = await this.detailsRepository.find({
+                where: {
+                    bill_id: bills[0].bill_id,
+                    product_id: productId
+                }
+            });
+            await this.detailsRepository.delete(details);
+        };
         this.paymentDone = async (accountId) => {
             let bills = await this.billRepository.find({
                 where: {
@@ -133,6 +149,26 @@ class ProductService {
                 bill_id: bills[0].bill_id,
                 status: true
             });
+        };
+        this.showMyHistory = async (accountId, time1, time2) => {
+            let myBills = await this.billRepository.find({
+                where: {
+                    account_id: accountId,
+                    status: true,
+                    time: (0, typeorm_1.Between)(time1, time2)
+                }
+            });
+            console.log(myBills);
+            let arrayDetails = [];
+            for (let i = 0; i < myBills.length; i++) {
+                let myDetails = await this.detailsRepository.find({
+                    where: {
+                        bill_id: myBills[i].bill_id
+                    }
+                });
+                arrayDetails.push(myDetails);
+            }
+            console.log(arrayDetails);
         };
         data_source_1.AppDataSource.initialize().then(connection => {
             console.log('Connect success');

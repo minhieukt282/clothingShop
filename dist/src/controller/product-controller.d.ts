@@ -18,6 +18,9 @@ export declare class ProductController {
     genderCategory: (req: Request, res: Response) => Promise<void>;
     myCart: (req: Request, res: Response) => Promise<void>;
     payment: (req: Request, res: Response) => Promise<void>;
+    deleteProduct: (req: Request, res: Response) => Promise<void>;
+    showHistory: (req: Request, res: Response) => Promise<void>;
+    getHistory: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: ProductController;
 export default _default;

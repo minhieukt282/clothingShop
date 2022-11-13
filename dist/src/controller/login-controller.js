@@ -12,10 +12,17 @@ class LoginController {
         };
         this.login = async (req, res) => {
             let status = await this.loginService.checkin(req.body.username, req.body.password);
-            if (status) {
-                let accountId = await this.loginService.findAccountId(req.body.username);
-                res.cookie('account_id', accountId[0].account_id, { maxAge: 86400, httpOnly: true });
-                res.redirect('/users/home');
+            if (status.status) {
+                if (status.isAdmin) {
+                    let accountId = await this.loginService.findAccountId(req.body.username);
+                    res.cookie('account_id', accountId[0].account_id, { maxAge: 2 * 60 * 60 * 1000, httpOnly: true });
+                    res.redirect('/admin');
+                }
+                else {
+                    let accountId = await this.loginService.findAccountId(req.body.username);
+                    res.cookie('account_id', accountId[0].account_id, { maxAge: 2 * 60 * 60 * 1000, httpOnly: true });
+                    res.redirect('/shops/home');
+                }
             }
             else
                 res.redirect('/users/login');

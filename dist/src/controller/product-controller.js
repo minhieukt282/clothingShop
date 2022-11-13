@@ -60,7 +60,7 @@ class ProductController {
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
             if (isStatus) {
                 let navItem = await this.navBar(req, res);
-                let allItem = await this.productService.findById(req.params.productId);
+                let allItem = await this.productService.findById(+req.params.productId);
                 res.render('product/details', {
                     listProduct: allItem.listProduct,
                     product: allItem.product,
@@ -76,7 +76,7 @@ class ProductController {
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
             if (isStatus) {
                 await this.productService.saveProductToCart(+req.cookies.account_id, +req.params.productId, +req.body.quantity);
-                res.redirect('/users/products');
+                res.redirect('/shops/products');
             }
             else {
                 res.redirect('/users/login');
@@ -98,7 +98,11 @@ class ProductController {
             }
         };
         this.genderCategory = async (req, res) => {
-            res.redirect('/users/mycart');
+            let products = '';
+            let navItem = await this.navBar(req, res);
+            if (req.params.genderName !== 'mail' && req.params.categoryName !== 'jqBootstrapValidation.min.js"') {
+                products = await this.productService.findByGenderCategory(req.params.genderName, req.params.categoryName);
+            }
         };
         this.myCart = async (req, res) => {
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
@@ -126,11 +130,26 @@ class ProductController {
             let isStatus = await this.isCheckCookie(+req.cookies.account_id);
             if (isStatus) {
                 await this.productService.paymentDone(+req.cookies.account_id);
-                res.redirect('/users/home');
+                res.redirect('/shops/home');
             }
             else {
                 res.redirect('/users/login');
             }
+        };
+        this.deleteProduct = async (req, res) => {
+            await this.productService.removeProductFromCart(+req.cookies.account_id, +req.params.productId);
+            res.redirect('/shops/mycart');
+        };
+        this.showHistory = async (req, res) => {
+            let isStatus = await this.isCheckCookie(+req.cookies.account_id);
+            if (isStatus) {
+            }
+            else {
+                res.redirect('/users/login');
+            }
+        };
+        this.getHistory = async (req, res) => {
+            res.render('product/history');
         };
         this.productService = new product_service_1.ProductService();
         this.loginService = new login_service_1.LoginService();

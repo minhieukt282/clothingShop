@@ -4,6 +4,7 @@ import {Category} from "../model/category";
 import {Gender} from "../model/gender";
 import {Bill} from "../model/bill";
 import {Details} from "../model/details";
+import {Between} from "typeorm";
 
 export class ProductService {
     private productRepository: any
@@ -37,8 +38,8 @@ export class ProductService {
         return allItem
     }
 
-    findById = async (id: any) => {
-        let product = await this.productRepository.findOneById(+id);
+    findById = async (id: number) => {
+        let product = await this.productRepository.findOneById(id);
         let products = await this.productRepository.find()
         let allItem = {
             listProduct: products,
@@ -149,6 +150,23 @@ export class ProductService {
         }
     }
 
+    removeProductFromCart = async (accountId: number, productId: number) => {
+        let bills = await this.billRepository.find({
+            where: {
+                account_id: accountId,
+                status: 'false'
+            }
+        })
+        let details = await this.detailsRepository.find({
+            where: {
+                bill_id: bills[0].bill_id,
+                product_id: productId
+            }
+        })
+        // console.log(details[0].product_id)
+        await this.detailsRepository.delete(details)
+    }
+
     paymentDone = async (accountId: number) => {
         let bills = await this.billRepository.find({
             where: {
@@ -160,6 +178,28 @@ export class ProductService {
             bill_id: bills[0].bill_id,
             status: true
         })
+    }
+
+    showMyHistory = async (accountId: number, time1: string, time2: string) => {
+        let myBills = await this.billRepository.find({
+            where: {
+                account_id: accountId,
+                status: true,
+                time: Between(time1, time2)
+            }
+        })
+        console.log(myBills)
+        let arrayDetails = []
+        for (let i = 0; i < myBills.length; i++) {
+            let myDetails = await this.detailsRepository.find({
+                where: {
+                    bill_id: myBills[i].bill_id
+                }
+            })
+            arrayDetails.push(myDetails)
+        }
+        console.log(arrayDetails)
+
     }
 }
 

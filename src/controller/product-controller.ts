@@ -69,7 +69,7 @@ export class ProductController {
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
             let navItem = await this.navBar(req, res)
-            let allItem = await this.productService.findById(req.params.productId)
+            let allItem = await this.productService.findById(+req.params.productId)
             res.render('product/details', {
                 listProduct: allItem.listProduct,
                 product: allItem.product,
@@ -86,7 +86,7 @@ export class ProductController {
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
             await this.productService.saveProductToCart(+req.cookies.account_id, +req.params.productId, +req.body.quantity)
-            res.redirect('/users/products')
+            res.redirect('/shops/products')
         } else {
             res.redirect('/users/login')
         }
@@ -108,14 +108,19 @@ export class ProductController {
     }
 
     genderCategory = async (req: Request, res: Response) => {
-        // let products = ''
-        // let navItem = await this.navBar(req, res)
-        // // console.log(req.params.genderName, req.params.categoryName)
-        // if (req.params.genderName !== 'mail' && req.params.categoryName !== 'jqBootstrapValidation.min.js"') {
-        //     products = await this.productService.findByGenderCategory(req.params.genderName, req.params.categoryName)
-        // }
+        let products = ''
+        let navItem = await this.navBar(req, res)
+        // console.log(req.params.genderName, req.params.categoryName)
+        if (req.params.genderName !== 'mail' && req.params.categoryName !== 'jqBootstrapValidation.min.js"') {
+            products = await this.productService.findByGenderCategory(req.params.genderName, req.params.categoryName)
+        }
         // console.log('products',products)
-        res.redirect('/users/mycart')
+        // res.render('product/list',{
+        //     listProduct: products,
+        //     category: navItem.category,
+        //     gender: navItem.gender
+        // })
+        // res.redirect('/users/mycart')
     }
 
     myCart = async (req: Request, res: Response) => {
@@ -144,11 +149,39 @@ export class ProductController {
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
             await this.productService.paymentDone(+req.cookies.account_id)
-            res.redirect('/users/home')
+            res.redirect('/shops/home')
         } else {
             res.redirect('/users/login')
         }
     }
+
+    deleteProduct = async (req: Request, res: Response) => {
+        await this.productService.removeProductFromCart(+req.cookies.account_id, +req.params.productId)
+        res.redirect('/shops/mycart')
+    }
+
+    showHistory = async (req: Request, res: Response) => {
+        let isStatus = await this.isCheckCookie(+req.cookies.account_id)
+        if (isStatus) {
+            // let navItem = await this.navBar(req, res)
+            // let date = new Date()
+            // let today = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+            // let time = '2022-11-10'
+            // await this.productService.showMyHistory(+req.cookies.account_id, time, time)
+            // // res.render('product/history', {
+            // //     category: navItem.category,
+            // //     gender: navItem.gender
+            // // })
+        } else {
+            res.redirect('/users/login')
+        }
+
+    }
+    getHistory = async (req: Request, res: Response) => {
+        res.render('product/history')
+    }
+
+
 }
 
 export default new ProductController()

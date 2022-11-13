@@ -9,9 +9,13 @@ routerProduct.get('/details/:productId', productController.details)
 routerProduct.post('/details/:productId', productController.addToCart)
 routerProduct.get('/category/:categoryName', productController.category)
 
-routerProduct.get('/:genderName/:categoryName', productController.genderCategory)
+// routerProduct.get('/:genderName/:categoryName', productController.genderCategory)
 
 routerProduct.get('/mycart', productController.myCart)
 routerProduct.post('/mycart', productController.payment)
+routerProduct.post('/delete/:productId', productController.deleteProduct)
+
+// routerProduct.get('/history', productController.showHistory)
+// routerProduct.post('/history', productController.getHistory)
 
 

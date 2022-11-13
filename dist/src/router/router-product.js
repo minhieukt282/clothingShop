@@ -13,7 +13,7 @@ exports.routerProduct.get('/products', product_controller_1.default.listProduct)
 exports.routerProduct.get('/details/:productId', product_controller_1.default.details);
 exports.routerProduct.post('/details/:productId', product_controller_1.default.addToCart);
 exports.routerProduct.get('/category/:categoryName', product_controller_1.default.category);
-exports.routerProduct.get('/:genderName/:categoryName', product_controller_1.default.genderCategory);
 exports.routerProduct.get('/mycart', product_controller_1.default.myCart);
 exports.routerProduct.post('/mycart', product_controller_1.default.payment);
+exports.routerProduct.post('/delete/:productId', product_controller_1.default.deleteProduct);
 //# sourceMappingURL=router-product.js.map

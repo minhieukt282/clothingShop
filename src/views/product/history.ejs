@@ -13,11 +13,11 @@
 
 <body>
 <!-- Topbar Start -->
-<%- include('../admin/nav-bar') %>
+<%- include('../partial/nav-bar') %>
 <!-- Topbar End -->
 
 <div class="container-fluid">
-    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Revenue</span>
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">History</span>
     </h2>
     <div class="row px-xl-5">
         <div class="col-lg-7 mb-5">
@@ -30,21 +30,20 @@
                 </tr>
                 </thead>
                 <tbody class="align-middle">
-                <% for( let i = 0; i < listData.length; i++){ %>
+                <%# for( let i = 0; i < listData.length; i++){ %>
                     <tr>
-                        <td class="align-middle"><%= listData[i].time %></td>
-                        <td class="align-middle"><%= listData[i].quantity %></td>
-                        <td class="align-middle">$<%= listData[i].total %></td>
+                        <td class="align-middle"><%#= listData[i].time %></td>
+                        <td class="align-middle"><%#= listData[i].quantity %></td>
+                        <td class="align-middle">$<%#= listData[i].total %></td>
                     </tr>
-                <% } %>
+                <%# } %>
                 </tbody>
             </table>
         </div>
         <div class="col-lg-5 mb-5">
             <div class="bg-light p-30 mb-30">
-                <h6 class="section-title position-relative text-uppercase mx-xl-5 mb-4; text-center">Revenue Search
+                <h6 class="section-title position-relative text-uppercase mx-xl-5 mb-4; text-center">History
                 </h6>
-
                 <form action="" method="post">
                     <div class="control-group">
                         <label class="form-label" for="form2Example27">From</label>

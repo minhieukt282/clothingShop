@@ -10,7 +10,7 @@ export declare class ProductService {
         category: any;
         gender: any;
     }>;
-    findById: (id: any) => Promise<{
+    findById: (id: number) => Promise<{
         listProduct: any;
         product: any;
     }>;
@@ -19,7 +19,9 @@ export declare class ProductService {
     saveProductToCart: (accountId: number, productId: number, quantity: number) => Promise<void>;
     showMyCart: (accountId: number) => Promise<any[]>;
     showDetails: (accountId: number) => Promise<any[]>;
+    removeProductFromCart: (accountId: number, productId: number) => Promise<void>;
     paymentDone: (accountId: number) => Promise<void>;
+    showMyHistory: (accountId: number, time1: string, time2: string) => Promise<void>;
 }
 declare const _default: ProductService;
 export default _default;

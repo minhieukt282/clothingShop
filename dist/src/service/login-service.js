@@ -6,7 +6,10 @@ const account_1 = require("../model/account");
 class LoginService {
     constructor() {
         this.checkin = async (username, password) => {
-            let status = false;
+            let status = {
+                isAdmin: false,
+                status: false
+            };
             let gate = await this.accountRepository.find({
                 where: {
                     username: username,
@@ -14,7 +17,18 @@ class LoginService {
                 }
             });
             if (gate.length !== 0) {
-                status = true;
+                if (gate[0].username === 'admin') {
+                    status = {
+                        isAdmin: true,
+                        status: true
+                    };
+                }
+                else {
+                    status = {
+                        isAdmin: false,
+                        status: true
+                    };
+                }
             }
             return status;
         };

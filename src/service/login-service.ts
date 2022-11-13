@@ -12,7 +12,10 @@ export class LoginService {
     }
 
     checkin = async (username: string, password: string) => {
-        let status = false
+        let status = {
+            isAdmin: false,
+            status: false
+        }
         let gate = await this.accountRepository.find({
             where: {
                 username: username,
@@ -20,7 +23,17 @@ export class LoginService {
             }
         })
         if (gate.length !== 0) {
-            status = true
+            if (gate[0].username === 'admin') {
+                status = {
+                    isAdmin: true,
+                    status: true
+                }
+            } else {
+                status = {
+                    isAdmin: false,
+                    status: true
+                }
+            }
         }
         return status
     }
@@ -39,13 +52,12 @@ export class LoginService {
                 username: username
             }
         })
-        if (listUsername.length != 0){
+        if (listUsername.length != 0) {
             return true
         } else return false
-
     }
 
-    findAccountId = async (username: string)=>{
+    findAccountId = async (username: string) => {
         let account = await this.accountRepository.find({
             where: {
                 username: username
@@ -54,7 +66,7 @@ export class LoginService {
         return account
     }
 
-    findAllAccount = async ()=>{
+    findAllAccount = async () => {
         let account = await this.accountRepository.find()
         return account
     }
