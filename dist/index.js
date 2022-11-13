@@ -20,7 +20,7 @@ app.use((0, express_fileupload_1.default)({
     createParentPath: true
 }));
 app.use('', router_1.router);
-const PORT = 3001;
+const PORT = 3000;
 app.listen(PORT, () => {
     console.log('server is running');
 });

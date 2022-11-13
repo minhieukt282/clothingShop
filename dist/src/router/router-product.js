@@ -19,5 +19,5 @@ exports.routerProduct.post('/mycart', product_controller_1.default.payment);
 exports.routerProduct.post('/delete/:productId', product_controller_1.default.deleteProduct);
 exports.routerProduct.get('/history', product_controller_1.default.showHistory);
 exports.routerProduct.post('/history', product_controller_1.default.getHistory);
-exports.routerProduct.get('/bills/:billId', product_controller_1.default.getBillDetails);
+exports.routerProduct.get('/history/bills/:billId', product_controller_1.default.getBillDetails);
 //# sourceMappingURL=router-product.js.map

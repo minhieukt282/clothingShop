@@ -197,16 +197,19 @@ export class ProductController {
     }
 
     getBillDetails = async (req: Request, res: Response) => {
-        console.log('vao day chua')
         let isStatus = await this.isCheckCookie(+req.cookies.account_id)
         if (isStatus) {
             let navItem = await this.navBar(req, res)
             let billDetails = await this.productService.showBillDetails(+req.params.billId)
-            console.log("get bill")
+            let total = 0
+            billDetails.forEach(item => {
+                total += item.quantity * item.price
+            })
             res.render('product/billDetails', {
                 bills: billDetails,
                 category: navItem.category,
-                gender: navItem.gender
+                gender: navItem.gender,
+                total: total
             })
         } else {
             res.redirect('/users/login')

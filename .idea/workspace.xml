@@ -6,16 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a3357390-016f-4eeb-9cd2-a43bec7cde74" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/controller/product-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/product-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/controller/product-controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/controller/product-controller.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/router/router-product.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router-product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/src/router/router-product.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/router/router-product.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/product-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/product-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/src/service/product-service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/src/service/product-service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/product-controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/product-controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/router-product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router-product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/product-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/product-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/partial/nav-bar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partial/nav-bar.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/partial/script.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partial/script.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/billDetails.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/billDetails.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/product/history.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/product/history.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +107,7 @@
       <workItem from="1668128420838" duration="4243000" />
       <workItem from="1668132780827" duration="23057000" />
       <workItem from="1668305466344" duration="208000" />
-      <workItem from="1668305699596" duration="24152000" />
+      <workItem from="1668305699596" duration="25784000" />
     </task>
     <servers />
   </component>

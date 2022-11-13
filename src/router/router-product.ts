@@ -15,7 +15,7 @@ routerProduct.post('/delete/:productId', productController.deleteProduct)
 
 routerProduct.get('/history', productController.showHistory)
 routerProduct.post('/history', productController.getHistory)
-routerProduct.get('/bills/:billId', productController.getBillDetails)
+routerProduct.get('/history/bills/:billId', productController.getBillDetails)
 // routerProduct.post('/bills/:billId', productController.getHistory)
 
 
